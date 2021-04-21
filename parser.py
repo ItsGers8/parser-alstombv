@@ -4,8 +4,6 @@ import lib.logicprocessor as processor
 
 if __name__ == "__main__":
     file = reader.get_file('resources/input.txt')
-    for item in file:
-        for element in item:
-            print(element)
-
-
+    dictionary = processor.get_dictionary(file)
+    output = processor.process(dictionary)
+    writer.write(output)
