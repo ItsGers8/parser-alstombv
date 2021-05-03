@@ -2,7 +2,9 @@
 def get_dictionary(file):
     equationDict = dict()
     for item in file:
-        equationDict[item[0].split(": ")[1].split(" ")[0]] = item[1:-1]
+        key = item[0].split(": ")[1].split(" ")[0]
+        value = item[:-1]
+        equationDict[key] = value
     return equationDict
 
 
