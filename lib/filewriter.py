@@ -20,16 +20,10 @@ def write(dictionary, file):
     while index <= len(list_with_keys)-1:
         write_file = open(file, "a")
 
-        res = '\n* {0} \n{1}    {2} = \n                        ({3})'.format(num, 'BOOL', str(list_with_keys[index]), str(list_with_values[index]))
+        res = '\n* {0} \n{1}    {2} = \n                        ({3})'.format(num, 'BOOL', str(list_with_keys[index]),
+                                                                              str(list_with_values[index]))
         write_file.write(res)
         num = num + 1
         index = index + 1
 
         write_file.close()
-
-# thisdict = {
-#   "brand": "Ford",
-#   "model": "Mustang",
-#   "year": 1964
-# }
-# write(thisdict, "hopen.dat")
