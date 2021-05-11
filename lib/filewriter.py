@@ -16,6 +16,7 @@ def write(dictionary, file):
     list_with_keys = get_keys_list(dictionary)
     list_with_values = get_values_list(dictionary)
 
+    open(file, 'w')
     while index <= len(list_with_keys)-1:
         write_file = open(file, "a")
 
@@ -25,3 +26,10 @@ def write(dictionary, file):
         index = index + 1
 
         write_file.close()
+
+# thisdict = {
+#   "brand": "Ford",
+#   "model": "Mustang",
+#   "year": 1964
+# }
+# write(thisdict, "hopen.dat")

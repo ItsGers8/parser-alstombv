@@ -6,4 +6,4 @@ if __name__ == "__main__":
     file = reader.get_file('resources/input.txt')
     dictionary = processor.get_dictionary(file)
     output = processor.process(dictionary)
-    writer.write(output)
+    writer.write(output, "hopen.dat")
