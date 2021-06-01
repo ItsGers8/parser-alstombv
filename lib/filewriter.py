@@ -24,5 +24,4 @@ def write(dictionary, file):
         write_file.write(res)
         num = num + 1
         index = index + 1
-
     write_file.close()
