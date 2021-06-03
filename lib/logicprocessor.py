@@ -1,3 +1,4 @@
+from lib.filereader import get_dict
 import re
 
 missed_count = 0
@@ -5,38 +6,38 @@ missed_count = 0
 
 # Function that generates a dictionary with equation name as key and the equation as the value
 def get_dictionary(file):
-    equationDict = dict()
+    equation_dict = dict()
     for item in file:
         key = item[0].split(": ")[1].split(" ")[0]
         value = item[:-1]
-        equationDict[key] = value
-    return equationDict
+        equation_dict[key] = value
+    return equation_dict
 
 
 # Function that processes the equations by checking what size they are and calling the according function
 def process(dictionary):
     global missed_count
-    solvedEquationDict = dict()
+    solved_equation_dict = dict()
     for key in dictionary:
         if len(dictionary[key]) > 5:
-            solvedEquationDict[key] = large_equation_solver(dictionary[key])
+            solved_equation_dict[key] = large_equation_solver(dictionary[key])
         elif len(dictionary[key]) == 5:
-            solvedEquationDict[key] = medium_equation_solver(dictionary[key])
+            solved_equation_dict[key] = medium_equation_solver(dictionary[key])
         else:
-            solvedEquationDict[key] = one_line_solver(dictionary[key], None, None)
+            solved_equation_dict[key] = one_line_solver(dictionary[key], None, None)
     print(f"{len(dictionary)}   (total)\n"
           f"{missed_count}    (missed)\n"
           f"---- -\n{len(dictionary) - missed_count}   (done)\n"
           f"{round(100 - (missed_count / len(dictionary)) * 100, 2)}%  (done percentage)")
-    return solvedEquationDict
+    return solved_equation_dict
 
 
 # Function that generates the correct string based on the syntax of the output file
 def one_line_solver(equation, gates, variables):
     if variables is None:
-        splitted_variables = equation[0].split("         ")[1]
+        split_variables = equation[0].split("         ")[1]
         gates = get_gates(equation[1])
-        variables = list(filter(None, splitted_variables.split(' ')))
+        variables = list(filter(None, split_variables.split(' ')))
     answer = " "
     for index, item in enumerate(gates, start=0):
         if item != "(R)" and item != "(T)":
@@ -104,16 +105,8 @@ def large_equation_solver(equation):
 
 
 def gate_dict(index, gate):
-    if index != 0:
-        return {
-            "] [": "* ",
-            "]/[": "* .N."
-        }[gate]
-    else:
-        return {
-            "] [": "",
-            "]/[": ".N."
-        }[gate]
+    position = "rest" if index != 0 else "start"
+    return get_dict(position)[gate]
 
 
 def get_gates(gates_in):

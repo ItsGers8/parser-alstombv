@@ -1,3 +1,6 @@
+import json
+
+
 def get_file(location):
     with open(location) as file:
         file_data = file.read()
@@ -22,3 +25,7 @@ def separate_equations(strip):
         else:
             equations[-1].append(element)
     return equations
+
+
+def get_dict(position):
+    return json.load(open("resources/GateLibrary.json"))[position]
