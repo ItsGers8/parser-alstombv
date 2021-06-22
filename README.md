@@ -7,5 +7,10 @@ Als groep hebben we al drie projecten samen gewerkt en weten goed wat we van elk
  en hoe de groep dynamisch werkt. Dit zal ons helpen in beter kunnen voorspellen hoe het eindproduct eruit komt te zien.
 
 ## Sprint 1
-In deze sprint zullen we werken aan een van de twee user stories, 
-deze hebben we onderverdeeld in kleinere issues waarvan we er aan een aantal zullen werken in deze sprint.
+In deze sprint hebben we gewerkt aan het opstarten van het systeem, het inlezen van de bestanden en het verwerken van one line equations.
+
+## Sprint 2
+In deze sprint hebben we gewerkt aan het oplossen van medium line equations en het wegschrijven naar het uitvoerbestand.
+
+## Sprint 3
+In deze sprint hebben we gewerkt aan het overdrachtsdocument, documentatie van de code en het wegschrijven van onopgeloste vergelijkingen naar een apart bestand.
