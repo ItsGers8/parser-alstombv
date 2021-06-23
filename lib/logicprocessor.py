@@ -30,7 +30,7 @@ def process(dictionary):
         elif len(dictionary[key]) == 5:
             solved_equation_dict[key] = medium_equation_solver(dictionary[key])
         else:
-            solved_equation_dict[key] = one_line_solver(dictionary[key], None, None)
+            solved_equation_dict[key] = small_equation_solver(dictionary[key], None, None)
     print(f"{len(dictionary)}   (total)\n"
           f"{missed_count}    (missed)\n"
           f"---- -\n{len(dictionary) - missed_count}   (done)\n"
@@ -39,7 +39,7 @@ def process(dictionary):
 
 
 # Function that generates the correct string based on the syntax of the output file
-def one_line_solver(equation, gates, variables):
+def small_equation_solver(equation, gates, variables):
     """A function that solves one lined equations by looking their gates up in the gate dictionary.
     :param equation: A list with the lines of the equation.
     :param gates: A list with all the gates of the equation, optional.
@@ -160,8 +160,8 @@ class Equation:
         self.paths = list()
 
     def add_path(self, path):
-        """A function that adds a path to the list of paths if it is not already in that list.
-        :param path: A string containing the path
+        """A function that adds a Path to the list of paths if it is not already in that list.
+        :param path: A Path object.
         """
         if path not in self.paths:
             self.paths.append(path)
@@ -188,7 +188,7 @@ class Path:
         self.names = names
 
     def solve(self):
-        """
+        """A function that returns a string with the solution of the path by translating the gates.
         :return: A string containing the solution of the path.
         """
         answer = " "
